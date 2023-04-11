@@ -1,0 +1,41 @@
+.mainContainer{
+    margin-right: 3rem;
+    margin-top: 2.5rem;
+    position: absolute;
+    color: black;
+    text-decoration: none;
+    font-size: 16px !important;
+    width: 200px;
+    top: 0;
+    border-radius: 14rem;
+    right: 0;
+    /* position: fixed; */
+    background-color: rgba(128, 212, 120, 0.582);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 25px;
+    /* justify-content: space-around; */
+}
+
+.mainContainer:hover {
+    background-color: rgba(35, 102, 39, 0.781);
+  }
+
+.word{
+    padding: 9px;
+    color: black;
+    text-decoration: none;
+    font-size: 17px;
+    font-family: system-ui;
+    font-weight: 500;
+}
+
+.word:hover{
+    color:rgb(124, 221, 130)
+
+}
+
+
+  

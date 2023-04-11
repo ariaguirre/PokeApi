@@ -1,0 +1,112 @@
+body {
+  background-image: url('../../images/forest.jpg');
+  background-blend-mode:normal;
+  background-size: cover;
+  background-position: center;
+  /* background-repeat: no-repeat; */
+}
+.logo{
+    margin-top: 9px;
+    margin-left: 20px;
+    position:fixed; 
+    top:0; 
+    left:0; 
+    width: 120px;
+    height: 50px;
+}
+.word{
+    margin-bottom: 20px;
+    padding: 10px;
+    margin-left: 1000px;
+    background-color: rgba(148, 194, 130, 0.795);
+    color: black;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 17px;
+    font-family: system-ui;
+    font-weight: 500;
+    /* position: absolute; */
+}
+
+.fullCont{
+    color: #123112;
+    width: 70rem;
+    height: 30rem;
+    margin-left: 7%;
+    margin-top: -1.5rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    /* background-color: rgba(195, 195, 197, 0.4); */
+    background-color: rgba(148, 194, 130, 0.795);
+    box-shadow: inset 8px 8px 24px 0px rgba(131, 133, 129, 0.7);
+    animation-name: detailCard;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+
+/* @-webkit-keyframes detailCard {
+    0% {
+      opacity: 0;
+      transform: translate3d(-2000px, 0, 0);
+    }
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+  } */
+  
+  @keyframes detailCard {
+    0% {
+      opacity: 0;
+      transform: translate3d(0, -2000px, 0);
+    }
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+  } 
+
+
+.data{
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+  padding: 2rem;
+  width: 15rem;
+  /* height: 15rem; */
+  margin-top: -1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-left: 6rem;
+  margin-right: 6rem;
+  border-radius: 1rem;
+  opacity: 0.8;
+  backdrop-filter: blur(0.3rem) grayscale(30%);
+  box-shadow: inset 8px 8px 24px 0px rgba(39, 51, 20, 0.4);
+}
+
+.imgCont{
+    /* border: 2px solid blue; */
+    height:500px;
+    width: fit-content;
+    width: 50%;
+    float: right;
+    box-sizing: border-box
+}
+.image{
+    width: 55%;
+    /* margin-left: 600px; */
+    animation-name: pulse;
+    animation-duration: 4s;
+    animation-fill-mode: both;
+    animation-timing-function: ease-in;
+    animation-iteration-count:infinite;
+}
+@keyframes pulse { 
+    0% { transform: scale(1); } 
+    25% { transform: scale(1.05); } 
+    50% { transform: scale(1.03); }
+    60% { transform: scale(1.07); }
+    100% { transform: scale(1); } 
+  } 

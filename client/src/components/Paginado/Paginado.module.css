@@ -1,0 +1,46 @@
+.prevBtn{
+    display: inline-block;
+    position: absolute;
+    margin-left: -6.5rem;
+	margin-top: 1rem;
+}
+
+
+.nextBtn{
+    /* border: 2px solid red; */
+    display: inline-block;
+    position: absolute;
+    width: 40px;
+    margin-left: 1.3rem;
+	margin-top: 1rem;
+}
+
+.pages{
+    display: inline-block;
+    margin: 5px;
+    /* border: 2px solid yellow; */
+}
+
+.pagesBtn {
+    box-shadow:inset 0px 0px 14px -3px #389638;
+    background-color: rgba(148, 194, 130, 0.822);
+	border-radius:6px;
+	display:inline-block;
+	cursor:pointer;
+	color: rgb(18, 56, 25);
+	font-family:'Segoe UI';
+	font-size:15px;
+	font-weight:bold;
+	padding:4px 15px;
+	text-decoration:none;
+}
+.pagesBtn:hover {
+	background:linear-gradient(to bottom, rgba(156, 169, 147, 0.2) 5%, rgba(219, 230, 196, 0.2) 100%);
+	background-color:rgba(49, 105, 35, 0.815);
+    color: rgb(215, 253, 197);
+}
+.pagesBtn:active {
+	position:relative;
+	top:1px;
+}
+

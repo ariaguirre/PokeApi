@@ -1,0 +1,98 @@
+body {
+    background-image: url('../../images/forest.jpg');
+    background-blend-mode:normal;
+    background-size: cover;
+    background-position: center;
+    /* background-repeat: no-repeat; */
+  }
+
+
+.btn {
+    /* background-image: url("../../images/pokebola.png"); */
+    display: block;
+    width: 80px;
+    height: 80px;
+    text-decoration: none;
+    line-height: 80px;
+    text-align: center;
+    border: 1px solid grey;
+    background-color: rgba(148, 194, 130, 0.856);
+
+    color: rgb(39, 39, 39);
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+    font-family:'Segoe UI';    
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    box-shadow:inset 0px 0px 14px -3px #9592c4;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease-out;
+    animation-name: rotar;
+    animation-duration: 2s;
+    
+  }
+  
+
+
+  .btn:hover {
+    background-color: rgba(81, 141, 58, 0.952);
+    color:#c8eec3;
+  }
+  
+  @keyframes rotar {
+    0%{
+        transform: rotate(0.5turn);
+    }
+  }
+
+
+@keyframes pulse {
+    from{
+        box-shadow:
+        0 0 25px #19420f,
+        0 0 50px #86f178;
+    }
+}
+
+.btn:focus{
+    animation:
+    pulse 0.5s ease-in-out;
+}
+
+
+
+  .landImg {
+    width: 700px;
+    height: 350px;
+    animation-name: girar;
+    animation-duration: 2s;
+    
+  }
+
+  @keyframes girar {
+   0%{
+
+       transform: scale(0.5) translate(-100%, -100%);
+   }
+  }
+  
+
+  .logo{
+    width: 500px;
+    height: 200px;
+    animation-name: entrar;
+    animation-duration: 2s;
+  }
+
+  @keyframes entrar {
+    0%{
+        transform: translateY(3in);;
+    }
+   } 
+
+  
+  

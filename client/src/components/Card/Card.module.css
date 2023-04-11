@@ -1,0 +1,70 @@
+.card{
+    border: 1px solid rgb(148, 144, 144);
+    background-color: rgba(178, 219, 167, 0.856);
+    box-shadow: 0px 2px 24px 0px rgba(0,0,0,0.69);
+    width: fit-content;
+    height: fit-content;
+    width: 50%;
+    height: 50%;
+    border-radius: 10px;
+    margin-left: 60px;
+    margin-bottom: 50px;
+    align-items: center;
+    /* opacity: 1; */
+/* transition: opacity 1s ease 0s; */
+height: 280px;
+width: 240px;
+/* transition: height 1s ease 0s;
+transition: width 1s ease 0s; */
+transition: box-shadow 1s ease 0s;
+transition: background-color 1s ease 0s;
+}
+
+.card:hover{
+    /* opacity: 0.6; */
+    /* height: 290px;
+    width: 260px; */
+    box-shadow: 0px 2px 35px 3px rgba(0, 0, 0, 0.767);
+    /* background-color: rgb(206, 202, 202); */
+
+
+}
+
+.name{
+    color: rgb(0, 0, 7);
+    font-weight: bolder;
+    font-size: large;
+}
+
+.type{
+    color: rgb(3, 32, 7);
+    font-size: medium;
+    font-weight: bold;
+}
+
+.types{
+    color: black;
+}
+
+.image{
+    width: 60%;
+    animation-name: pulse;
+    animation-duration: 4s;
+    animation-fill-mode: both;
+    animation-timing-function: ease-in;
+    animation-iteration-count:infinite;
+}
+
+@keyframes pulse { 
+    0% { transform: scale(1); } 
+    25% { transform: scale(1.05); } 
+    50% { transform: scale(1.03); }
+    60% { transform: scale(1.07); }
+    100% { transform: scale(1); } 
+  } 
+
+.active{
+    color: red;
+    font-weight: bold;
+}
+

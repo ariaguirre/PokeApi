@@ -1,0 +1,137 @@
+.mainContainer{
+    margin-top: -3rem;
+    margin-left: 400px;
+    /* position: fixed; */
+    width: 150%;
+    height: 15px;
+    max-width: 430px;
+    background-color: hsla(123, 48%, 61%, 0.692);
+    display: flex;
+    align-items: center;
+    border-radius: 24px;
+    padding: 13px;
+    transition-duration: 1s;
+    position: top;
+    border: 1px solid;
+    text-align: center;
+    justify-content: center;
+    /* margin: auto; */
+    backdrop-filter: blur(10px);
+
+    
+}
+
+.mainContainer:hover{
+    background: rgb(57, 136, 73);
+}
+input{
+    background-color: transparent;
+    flex:1;
+    border: 0;
+    outline: none;
+    padding: 20px 2px;
+    font-size: 16px;
+    color: #000000;
+
+}
+
+ ::placeholder{
+    font-style: italic;
+    font-family: system-ui;
+    filter: blur(.25px);
+    font-size: 15px;
+    font-weight: 400;
+    color: rgb(13, 94, 13);
+    
+}
+
+
+
+.btn{
+  width: fit-content;
+  height: fit-content;
+  background-color: rgba(90, 221, 90, 0.555);
+  background-size: .5px;
+  font-size: 15px;
+  justify-content: center;
+  position: absolute;
+  align-items: center;
+  /* position: fixed; */
+  cursor: pointer;
+  font-style: italic;
+  font-family: system-ui;
+  border-radius: 25px;
+  margin-left: 200px;
+  margin-top: -3.4rem;
+}
+
+
+.mainContainer p{
+    position: absolute;
+    color:rgb(17, 16, 16);
+    transform: rotate(-35deg);
+    right: 22px;
+    top: 2.5px;
+    transition-duration: 1s;
+    font-weight: 400;
+}
+
+.mainContainer:hover button{
+    border-color: #000000;
+}
+
+
+.mainContainer:hover p{
+    color: #000000;
+}
+
+
+
+.searchLink{
+    text-decoration: none;
+    color: rgb(27, 50, 62);
+}
+
+.searchImg{
+    /* border: 2px solid green; */
+    width: 150px;
+    height: 150px;
+
+}
+
+.homeCards image {
+    /* height: 14rem; */
+    /* width: 30%; */
+    object-fit: scale-down;
+    padding: 3px;
+    animation-name: pulse;
+    animation-duration: 4s;
+    animation-fill-mode: both;
+    animation-timing-function: ease-in;
+    animation-iteration-count:infinite;
+}
+
+.searchCont{
+    border: 1px solid rgb(138, 224, 138);
+    background-color: rgba(136, 209, 118, 0.842);
+    box-shadow: 0px 2px 24px 0px rgba(0,0,0,0.69);
+    width: fit-content;
+    height: fit-content;
+    border-radius: 10px;
+    height: 220px;
+    width: 220px;
+    align-items: center;
+    margin-left: 540px;
+    transition: box-shadow 1s ease 0s;
+    transition: background-color 1s ease 0s;
+}
+
+.searchCont:hover{
+    box-shadow: 0px 2px 35px 3px rgba(0,0,0,0.75);
+
+}
+
+.error{
+    color:rgb(17, 16, 16);
+    font-weight: 600;
+}
