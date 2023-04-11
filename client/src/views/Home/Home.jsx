@@ -113,7 +113,7 @@ export default function Home (){
                     <option disabled value = "default">Filter by origin...</option>
                     {/* <option value = "all">Show all...</option> */}
                     <option value = "originals">Originals...</option>
-                    <option value = "created by User">Created By User...</option>
+                    <option value = "created by User">created By User...</option>
                 </select>
                 {order.length > 0 && (<span className={style.filtered}>{order}</span>)}
             </form>
