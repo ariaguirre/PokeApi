@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {Link} from "react-router-dom";
-import {getPokemons, filterByType, getTypes, filterByOrigin, orderByName, removeDetails, orderByStrength, filterByDefense} from "../../redux/actions";
+import {getPokemons, filterByType, getTypes, filterByOrigin, orderByName, removeDetails, orderByStrength} from "../../redux/actions";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import style from "./Home.module.css";
 import logo from "../../images/logo.png";
@@ -81,12 +81,7 @@ export default function Home (){
     }
     // console.log("currentPokemons desde home:", currentPokemons)
 
-    function handleFilterByDefense(event){
-        event.preventDefault();
-        dispatch(filterByDefense(event.target.value));
-        setOrder(`Filtered by Defense: ${event.target.value}`);
-        event.target.value='default';
-        }
+
 
     return(
         <div>
@@ -122,13 +117,7 @@ export default function Home (){
                     <option value = "originals">Originals...</option>
                     <option value = "created by User">Created By User...</option>
                 </select>
-                <select className={style.filters} value='default' onChange={event => handleFilterByDefense(event)}>
-                    <option disabled value = "default">Filter by defense...</option>
-                    {/* <option value = "all">Show all...</option> */}
-                    <option value = "highD">Highest Defense</option>
-                    <option value = "lowD">Lowest Defense</option>
-                </select>
-                {order.length > 0 && (<span className={style.filtered}>{order}</span>)}
+                {/* {order.length > 0 && (<span className={style.filtered}>{order}</span>)} */}
             </form>
             <br />
 

@@ -18,34 +18,18 @@ function SearchBar() {
   const handleSearch = async (event) => {
     event.preventDefault();
     dispatch(getPokemonByName(query));
+    setQuery(event.target.value) 
+
+    // console.log("query desde handleSearch:", query)
   }
 
 
   function handleInputChange(event){
     event.preventDefault()
     setQuery(event.target.value) 
-    console.log(query) 
 }
 
-  // const handleSearch = async () => {
-  //   try {
-  //     const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${query.toLowerCase()}`);
-  //     setPokemon(response.data);
-  //     setErrorMessage('');
-  //     if(!response){
-  //       const dbResponse = await axios.get(`http://localhost:3001/pokemons/name?name=${query.toLowerCase()}`);
-  //       setPokemon(dbResponse.data);
-  //       setErrorMessage('');
-  //     }
-  //   } catch (error) {
-  //     console.error(error);
-  //     setPokemon(null);
-  //     setErrorMessage('No pokemon found.');
-  //   }
-  // };
-  console.log("pokemon desde searchBar:", pokemon)
-
-
+  // console.log("pokemon desde searchBar:", pokemon)
 
   return (
     <div>
@@ -63,9 +47,9 @@ function SearchBar() {
       </div>
       {pokemon && (
         <div className={style.searchCont}>
-             <Link to={`/pokemon/${pokemon.id}`} className={style.searchLink}>
-                  <h3 className={style.nameCont}>{pokemon.name}</h3>
-                {/* <img src={pokemon.sprites.front_default} alt={pokemon.name} className={style.searchImg}/> */}
+             <Link to={`/pokemon/${pokemon[0].id}`} className={style.searchLink}>
+                  <h3 className={style.nameCont}>{pokemon[0].name.charAt(0).toUpperCase() + pokemon[0].name.slice(1)}</h3>
+                <img src={pokemon[0].image} alt={pokemon.name} className={style.searchImg}/>
               </Link>
         </div>
       )}

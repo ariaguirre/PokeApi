@@ -11,7 +11,7 @@ export const FILTER_BY_ORIGIN = "FILTER_BY_ORIGIN";
 export const ORDER_BY_NAME = "ORDER_BY_NAME"
 export const ORDER_BY_STRENGTH = "ORDER_BY_STRENGTH";
 export const REMOVE_DETAILS = "REMOVE_DETAILS";
-export const FILTER_BY_DEFENSE = "FILTER_BY_DEFENSE";
+
 
 
 
@@ -34,6 +34,36 @@ export const getPokemonById = (id) => {
     };
 };
 
+
+export function getPokemonByName(name){
+    return async function(dispatch){
+        try{
+            let pokemon = await axios.get(`http://localhost:3001/pokemons/byname?name=${name}`);
+            // const pokeData=pokemon.data[0].name
+            // console.log("pokeData desde action: ", pokeData)
+
+            // const dbPokemon = pokemon.data[0].name;
+            // const apiPokemon = pokemon.data.name;
+            const pokemonName = pokemon.data.name ? pokemon.data.name : pokemon.data[0].name;
+            
+            // console.log("pokemonName:", pokemonName)
+            // if(pokemon.data.hasOwnProperty([0])) return pokemon.data[0].name;
+            // else return pokemon.data.name
+
+            // console.log("esto envia la action", pokemonName)
+
+            return dispatch({
+                type: GET_POKEMON_BY_NAME,
+                payload: pokemonName
+            })
+        } catch (error) {
+            console.log(error)
+            
+            }
+        }
+    }
+
+
 export function searchedPokemon (payload) {
     return {
         type: SEARCHED_POKEMON,
@@ -46,7 +76,7 @@ export const getTypes = () => {
     return async function (dispatch) {
         const response = await axios.get(
             "http://localhost:3001/types/");
-            console.log(response)
+            // console.log(response)
             return dispatch({ type: "GET_TYPES", payload: response.data });
     } 
 };
@@ -64,34 +94,10 @@ export function postPokemon(payload){
     }
 }
 
-export function getPokemonByName(name){
-    return async function(dispatch){
-        try{
-            let pokemon = await axios.get(`http://localhost:3001/pokemons/byname?name=${name}`);
-            console.log(pokemon)
-            return dispatch({
-                type: GET_POKEMON_BY_NAME,
-                payload: pokemon.data
-            })
-        } catch (error) {
-            console.log(error)
-            
-            }
-        }
-    }
 
 export function filterByType(payload){
     return {
         type: FILTER_BY_TYPE,
-        payload
-    }
-}
-
-
-
-export function filterByDefense(payload){
-    return{
-        type: FILTER_BY_DEFENSE,
         payload
     }
 }

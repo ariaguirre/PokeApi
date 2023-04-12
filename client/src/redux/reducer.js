@@ -1,4 +1,4 @@
-import {GET_POKEMONS, GET_POKEMON_BY_ID, GET_POKEMON_BY_NAME, GET_TYPES, POST_POKEMON, SEARCHED_POKEMON,FILTER_BY_DEFENSE,  FILTER_BY_TYPE, FILTER_BY_ORIGIN, ORDER_BY_NAME, ORDER_BY_STRENGTH} from "./actions";
+import {GET_POKEMONS, GET_POKEMON_BY_ID, GET_POKEMON_BY_NAME, GET_TYPES, POST_POKEMON, SEARCHED_POKEMON,  FILTER_BY_TYPE, FILTER_BY_ORIGIN, ORDER_BY_NAME, ORDER_BY_STRENGTH} from "./actions";
 
 const initialState = {
     allPokemons: [],
@@ -18,9 +18,8 @@ const rootReducer = (state = initialState, action) =>{
             return{...state, detail: action.payload, filteredPokemons: action.payload}
 
         case GET_POKEMON_BY_NAME:
-    
-        const pokeByName = state.totalPokemons.filter((p) => p.name===action.payload);
-
+            const pokeByName = state.totalPokemons.filter((p) => p.name===action.payload);
+            // console.log("pokeByName desde reducer:", pokeByName)
             return{
                 ...state,
                 pokemonByName: pokeByName,
@@ -73,21 +72,6 @@ const rootReducer = (state = initialState, action) =>{
             }
 
 
-        case FILTER_BY_DEFENSE:
-            const highDefPoke = state.totalPokemons.filter((p) => p.hp > 80);
-            const lowDefPoke = state.totalPokemons.filter((p) => p.hp < 80);
-            const defPokes =  action.payload === 'highD' ? highDefPoke : lowDefPoke;
-            console.log("lowDefPoke:", lowDefPoke)
-            console.log("highDefPoke:", highDefPoke)
-            return{
-                ...state,
-                allPokemons: defPokes, 
-                filteredPokemons: defPokes
-            }
-
-
-
-
         case ORDER_BY_NAME: 
             let sortedNames = action.payload === 'asc' ?
             state.allPokemons.sort(function (a,b){
@@ -124,23 +108,13 @@ const rootReducer = (state = initialState, action) =>{
                             allPokemons: orderedByAttack
                         }
                     
-                
-
-
-            
+               
 
         case "REMOVE_DETAILS":
             return{
                 ...state,
                 details: []
             }
-
-
-
-
-
-
-
 
             
         case POST_POKEMON:

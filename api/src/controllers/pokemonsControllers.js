@@ -151,7 +151,7 @@ const pokemonByNameController = async(name)=> {
     if(extApiPokemon.data !== "") return extApiPokemon.data
   } catch(error){
     const dbPokemon = await Pokemon.findAll({where:{name:name}});
-    // console.log("dbPokemon:", dbPokemon)
+    console.log("dbPokemon:", dbPokemon)
     if(dbPokemon.length > 0 ) return dbPokemon;
   }
 } 
