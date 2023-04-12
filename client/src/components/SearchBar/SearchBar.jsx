@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-// import Card from "../../components/Card/Card";
 import {Link} from "react-router-dom";
 import { getPokemonByName } from '../../redux/actions';
 import {useDispatch, useSelector} from "react-redux"
@@ -13,7 +12,6 @@ function SearchBar() {
 
   const dispatch = useDispatch()
   const [query, setQuery] = useState('');
-  const [error, setError] = useState('');
 
 
   const handleSearch = async (event) => {
@@ -26,7 +24,8 @@ function SearchBar() {
       alert('No pokemon found!')
     }
   }
-  
+
+
   function handleInputChange(event){
     event.preventDefault()
     setQuery(event.target.value) 

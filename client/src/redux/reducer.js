@@ -25,8 +25,6 @@ const rootReducer = (state = initialState, action) =>{
                 pokemonByName: pokeByName,
             }
 
-
-
         case SEARCHED_POKEMON: 
             return{...state, lastSearchedPokemon: action.payload}
 
@@ -38,8 +36,8 @@ const rootReducer = (state = initialState, action) =>{
             const pokeByType = action.payload === "All" ? pokemons : pokemons.filter(pokemon => {
                 return pokemon.types.some(pokeType => pokeType.name === action.payload)
             })
-                console.log("pokemons:", pokemons)
-                console.log("pokeByType:", pokeByType)
+                // console.log("pokemons:", pokemons)
+                // console.log("pokeByType:", pokeByType)
             return{
                 ...state, 
                 allPokemons: pokeByType,
@@ -70,7 +68,6 @@ const rootReducer = (state = initialState, action) =>{
                 allPokemons: pokeByOrigin,          //todo paginado en base a allPokemons
                 filteredPokemons: pokeByOrigin      //useEffect cambia cada vez que este se modifica
             }
-
 
         case ORDER_BY_NAME: 
             let sortedNames = action.payload === 'asc' ?
@@ -107,15 +104,6 @@ const rootReducer = (state = initialState, action) =>{
                             ...state, 
                             allPokemons: orderedByAttack
                         }
-                    
-               
-
-        case "REMOVE_DETAILS":
-            return{
-                ...state,
-                details: []
-            }
-
             
         case POST_POKEMON:
             return{...state}

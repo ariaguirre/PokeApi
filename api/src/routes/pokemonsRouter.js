@@ -13,12 +13,12 @@ const pokemonsRouter = Router();
 
 pokemonsRouter.get("/", getPokemonsHandler);
 
-// pokemonsRouter.get("/name", getPokemonsHandler);
 pokemonsRouter.get("/byname", getPokemonByNameHandler);
 
 pokemonsRouter.get('/:id', getPokemonByIdHandler);
 
 pokemonsRouter.post("/", createPokemonHandler);
+
 
 
 // pokemonsRouter.post("/", validate, createPokemonHandler);

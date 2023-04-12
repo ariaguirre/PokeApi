@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {Link} from "react-router-dom";
-import {getPokemons, filterByType, getTypes, filterByOrigin, orderByName, removeDetails, orderByStrength} from "../../redux/actions";
+import {getPokemons, filterByType, getTypes, filterByOrigin, orderByName, orderByStrength} from "../../redux/actions";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import style from "./Home.module.css";
 import logo from "../../images/logo.png";
@@ -18,17 +18,13 @@ export default function Home (){
 
     const [loadedPokemons /*, setLoadedPokemons*/] = useState(allPokemons.length ? true : false);
 
-
-
     useEffect(() => {if(allPokemons.length === 0) dispatch(getPokemons())}, [filteredPokemons]);
     useEffect(() => {dispatch(getTypes())}, [])
 
     // console.log("allPokemons desde home", allPokemons)
-    // console.log("filteredPokemons desde home", filteredPokemons)
     const [order, setOrder] = useState('')
 
     useEffect(()=>{
-        dispatch(removeDetails());
         if(!loadedPokemons){
             dispatch(getPokemons());
             dispatch(getTypes());
@@ -36,7 +32,6 @@ export default function Home (){
     }, [loadedPokemons, dispatch])
 
 
-    //paginacion 
     const [currentPage, setCurrentPage] = useState(1);
     const [pokemonPage /*, setPokemonPage*/] = useState(8);
     const indexLast = currentPage * pokemonPage;

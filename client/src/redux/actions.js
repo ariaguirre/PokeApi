@@ -13,9 +13,6 @@ export const ORDER_BY_STRENGTH = "ORDER_BY_STRENGTH";
 export const REMOVE_DETAILS = "REMOVE_DETAILS";
 
 
-
-
-
 export function getPokemons(){
     return async function(dispatch){
         const pokemons = await axios.get('http://localhost:3001/pokemons');
@@ -39,19 +36,10 @@ export function getPokemonByName(name){
     return async function(dispatch){
         try{
             let pokemon = await axios.get(`http://localhost:3001/pokemons/byname?name=${name}`);
-            // const pokeData=pokemon.data[0].name
-            // console.log("pokeData desde action: ", pokeData)
 
-            // const dbPokemon = pokemon.data[0].name;
-            // const apiPokemon = pokemon.data.name;
             const pokemonName = pokemon.data.name ? pokemon.data.name : pokemon.data[0].name;
             
             // console.log("pokemonName:", pokemonName)
-            // if(pokemon.data.hasOwnProperty([0])) return pokemon.data[0].name;
-            // else return pokemon.data.name
-
-            // console.log("esto envia la action", pokemonName)
-
             return dispatch({
                 type: GET_POKEMON_BY_NAME,
                 payload: pokemonName
@@ -124,31 +112,3 @@ export function orderByStrength(payload){
     }
 }
 
-
-export function removeDetails(){
-    return{
-        type: 'REMOVE_DETAILS',
-    }
-}
-
-
-
-
-
-
-
-
-
-
-// export const filterBySource = () => {
-//     dispatch({type: "FILTER_BY_SOURCE"});
-// }
-
-
-/*
-Si quiero traer los tipos de la bdd, tengo que ir a mi back y poner 
-Router.get("/genres", (req, res) => {
-    const genres = Genres.findAll(); 
-    res.status(200).json(genres);
-})
-*/

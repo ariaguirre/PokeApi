@@ -28,12 +28,6 @@ const [form, setForm] = useState({
 
 const dispatch = useDispatch();
 
-// const [errors, setErrors] = useState({
-//     name:"",
-//     weight: "",
-//     height: ""
-// })
-
 const changeHandler = (event) => {
     const property = event.target.name;
     const value = event.target.value;
