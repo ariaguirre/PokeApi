@@ -11,6 +11,8 @@ export const FILTER_BY_ORIGIN = "FILTER_BY_ORIGIN";
 export const ORDER_BY_NAME = "ORDER_BY_NAME"
 export const ORDER_BY_STRENGTH = "ORDER_BY_STRENGTH";
 export const REMOVE_DETAILS = "REMOVE_DETAILS";
+export const FILTER_BY_DEFENSE = "FILTER_BY_DEFENSE";
+
 
 
 
@@ -65,7 +67,8 @@ export function postPokemon(payload){
 export function getPokemonByName(name){
     return async function(dispatch){
         try{
-            let pokemon = await axios.get(`http://localhost:3001/pokemons/name?name=${name}`);
+            let pokemon = await axios.get(`http://localhost:3001/pokemons/byname?name=${name}`);
+            console.log(pokemon)
             return dispatch({
                 type: GET_POKEMON_BY_NAME,
                 payload: pokemon.data
@@ -86,13 +89,20 @@ export function filterByType(payload){
 
 
 
+export function filterByDefense(payload){
+    return{
+        type: FILTER_BY_DEFENSE,
+        payload
+    }
+}
+
+
 export function filterByOrigin(payload){
     return{
         type: FILTER_BY_ORIGIN,
         payload
     }
 }
-
 
 export function orderByName(payload){
     return{

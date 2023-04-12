@@ -1,5 +1,5 @@
-const {createPokemon, getPokemonByNameOrId, getDbPokemons,  getAllPokemons} = require("../controllers/pokemonsControllers");
-const {getTypes} = require("../controllers/typesControllers");
+const {createPokemon, getPokemonByNameOrId, getDbPokemons,  getAllPokemons, pokemonByNameController} = require("../controllers/pokemonsControllers");
+const {getTypes, getAllTypes} = require("../controllers/typesControllers");
 const {Pokemon, Type} = require("../db");
 
 
@@ -8,32 +8,49 @@ const getPokemonsHandler = async(req, res) =>{
     const id = req.params.idPokemon
     try{
         const results = (id || name) ? await getPokemonByNameOrId(id, name) : await getAllPokemons();
+        const dbTypes = await Type.findAll()
+        if(dbTypes.length ===  0){
+            const types = await getAllTypes();
+            const addedTypes = await Type.bulkCreate(types);
+        }
         res.status(200).json(results);
     } catch(error){
         res.status(400).json({error: error.message});
     }
 }
 
-const getPokemonByNameHandler = async (req, res) => {
+// const getPokemonByNameHandler = async (req, res) => {
+//     const {name} = req.query;
+//     console.log("name:", name)
+//     if (!name) {
+//         const totalPokemons = await getAllPokemons();
+//         totalPokemons ? res.status(200).json(totalPokemons) : res.status(400).json('No pokemon found with that name :(');
+//       } else {
+//         try {
+//           const foundPokemon = await getPokemonByNameOrId(name.toLowerCase());
+//           if (foundPokemon) return res.status(200).send(foundPokemon);
+//           const pokemonsDB = await getDbPokemons();
+//           if(!foundPokemon && name){
+//               const foundPokemonDB = pokemonsDB.find(
+//                   (pokemon) => pokemon.name === name);
+//                   return foundPokemonDB ? res.status(200).json(foundPokemonDB)
+//                   : res.status(400).send('No pokemon found with that name :(');
+//                 }
+//         } catch (error) {
+//             res.send(400).json({error: error.message});
+//         }
+//       }
+// }
+
+
+const getPokemonByNameHandler = async(req, res) => {
     const {name} = req.query;
-    if (!name) {
-        const totalPokemons = await getAllPokemons();
-        totalPokemons ? res.status(200).json(totalPokemons) : res.status(400).json('No pokemon found with that name :(');
-      } else {
-        try {
-          const foundPokemon = await getPokemonByNameOrId(name.toLowerCase());
-          if (foundPokemon) return res.status(200).send(foundPokemon);
-          const pokemonsDB = await getDbPokemons();
-          if(!foundPokemon && name){
-              const foundPokemonDB = pokemonsDB.find(
-                  (pokemon) => pokemon.name === name);
-                  return foundPokemonDB ? res.status(200).json(foundPokemonDB)
-                  : res.status(400).send('No pokemon found with that name :(');
-                }
-        } catch (error) {
-            res.send(400).json({error: error.message});
-        }
-      }
+    try{
+        const pokemonByName = await pokemonByNameController(name); 
+        res.status(200).json(pokemonByName);
+    } catch(error){
+        console.log("ERRROOOOOOOOOOOOOR", error)
+    }
 }
 
 

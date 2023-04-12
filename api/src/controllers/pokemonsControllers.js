@@ -1,3 +1,4 @@
+const db = require("../db");
 const {Pokemon, Type} = require("../db");
 const axios = require("axios");
 
@@ -144,6 +145,17 @@ const getPokemonByNameOrId = async (id, name) => {
   }
 };
 
+const pokemonByNameController = async(name)=> {
+  try{
+    const extApiPokemon = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`);
+    if(extApiPokemon.data !== "") return extApiPokemon.data
+  } catch(error){
+    const dbPokemon = await Pokemon.findAll({where:{name:name}});
+    // console.log("dbPokemon:", dbPokemon)
+    if(dbPokemon.length > 0 ) return dbPokemon;
+  }
+} 
+
 
 
 
@@ -178,4 +190,4 @@ const getPokemonByNameOrId = async (id, name) => {
 
 
 
-module.exports = {createPokemon, getPokemonByNameOrId, getPokemonsAPI, getAllPokemons, getDbPokemons}
+module.exports = {createPokemon, pokemonByNameController, getPokemonByNameOrId, getPokemonsAPI, getAllPokemons, getDbPokemons}
