@@ -50,20 +50,6 @@ async function getPokemonsAPI() {
     return dbPokemon;
   }
 
-  // async function getAllPokemons() {
-  //   const dbPokemons = await Pokemon.findAll({
-  //     include: {
-  //       model: Type,
-  //       through: {
-
-  //         attributes: [],
-  //       },
-  //       attributes: ["name"],
-  //     },
-  //   });
-  //   const ApiPokemons = await getPokemonsAPI();
-  //   return [...ApiPokemons, ...dbPokemons];
-  // }
 
   const getAllPokemons = async () => {
     try {
@@ -140,7 +126,7 @@ const pokemonByNameController = async(name)=> {
 
 
 
-
+//prueba 2
 // const getPokemonById = async (id) => {
 //     if (typeof id === "number") {
 //       const pokemonDb = await Pokemon.findAll({

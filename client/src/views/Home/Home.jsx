@@ -42,7 +42,10 @@ export default function Home (){
     const indexLast = currentPage * pokemonPage;
     const indexFirst = indexLast - pokemonPage;
     const currentPokemons = allPokemons.slice(indexFirst, indexLast);
-    const paginado = (pageNumber) => {setCurrentPage(pageNumber)}
+    
+    const paginado = (pageNumber) => {
+        setCurrentPage(pageNumber)
+    }
 
     useEffect(() =>{
         setCurrentPage(1);
