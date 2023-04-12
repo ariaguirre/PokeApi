@@ -126,8 +126,8 @@ const submitHandler = (event) => {
                 <br/>
                 <div className={style.imgInput}>
                 <label>Image: </label>
-                <input type="file" accept="image/png, image/jpeg" aria-label="Upload" value={form.image}  onChange={changeHandler} name = "image"/>
-                {/* <input type="text" value={form.image || "https://e7.pngegg.com/pngimages/569/963/png-clipart-pokeball-illustration-ash-ketchum-pokeball-s-image-file-formats-rim.png"} onChange={changeHandler} name = "image" /> */}
+                {/* <input type="file" accept="image/png, image/jpeg" aria-label="Upload" value={form.image}  onChange={changeHandler} name = "image"/> */}
+                <input type="text" value={form.image || "https://e7.pngegg.com/pngimages/569/963/png-clipart-pokeball-illustration-ash-ketchum-pokeball-s-image-file-formats-rim.png"} onChange={changeHandler} name = "image" />
                 </div>
                 <br/>
                 <div>

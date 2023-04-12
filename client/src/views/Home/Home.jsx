@@ -81,8 +81,6 @@ export default function Home (){
     }
     // console.log("currentPokemons desde home:", currentPokemons)
 
-
-
     return(
         <div>
             <br/>

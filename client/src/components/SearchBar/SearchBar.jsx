@@ -13,23 +13,25 @@ function SearchBar() {
 
   const dispatch = useDispatch()
   const [query, setQuery] = useState('');
+  const [error, setError] = useState('');
 
 
   const handleSearch = async (event) => {
     event.preventDefault();
-    dispatch(getPokemonByName(query));
-    setQuery(event.target.value) 
-
-    // console.log("query desde handleSearch:", query)
+    try{
+      dispatch(getPokemonByName(query));
+      setQuery(event.target.value) 
+    } catch(error){
+      console.log(error)
+      alert('No pokemon found!')
+    }
   }
-
-
+  
   function handleInputChange(event){
     event.preventDefault()
     setQuery(event.target.value) 
-}
-
-  // console.log("pokemon desde searchBar:", pokemon)
+  }
+  // console.log("query desde handleSearch:", query)
 
   return (
     <div>

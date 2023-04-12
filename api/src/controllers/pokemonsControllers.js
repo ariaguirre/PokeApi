@@ -2,24 +2,6 @@ const db = require("../db");
 const {Pokemon, Type} = require("../db");
 const axios = require("axios");
 
-// const cleanArray = (arr) => 
-//     [arr].map((elem) => {
-//     return {
-//         id: elem.id,
-//         name: elem.name,
-//         hp: elem.hp, 
-//         attack: elem.attack, 
-//         defense: elem.defense,
-//         speed: elem.speed,
-//         height: elem.height,
-//         weight: elem.weight,
-//         image: elem.image,
-//         created: false,
-
-//     };
-// });
-
-
 async function getPokemonsAPI() {
     try {
       const response = await axios.get(
