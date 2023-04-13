@@ -33,7 +33,7 @@ export default function Home (){
 
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [pokemonPage /*, setPokemonPage*/] = useState(8);
+    const [pokemonPage /*, setPokemonPage*/] = useState(12);
     const indexLast = currentPage * pokemonPage;
     const indexFirst = indexLast - pokemonPage;
     const currentPokemons = allPokemons.slice(indexFirst, indexLast);
@@ -77,6 +77,18 @@ export default function Home (){
         setOrder(`Filtered by Origin: ${event.target.value}`);
         event.target.value= 'default';
     }
+
+    function resetFiltersAndOrder(event) {
+        event.preventDefault();
+        dispatch(orderByName('asc')); 
+        dispatch(filterByType('all')); 
+        dispatch(filterByOrigin('all')); 
+        setCurrentPage(1);
+        setOrder(''); 
+      }
+      
+
+
     // console.log("currentPokemons desde home:", currentPokemons)
 
     return(
@@ -114,7 +126,9 @@ export default function Home (){
                     <option value = "created by User">Created By User...</option>
                 </select>
                 {/* {order.length > 0 && (<span className={style.filtered}>{order}</span>)} */}
+                <button className={style.reset} onclick={resetFiltersAndOrder}>Reset</button>
             </form>
+
             <br />
 
             <div className={style.containerCards}>

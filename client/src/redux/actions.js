@@ -112,3 +112,11 @@ export function orderByStrength(payload){
     }
 }
 
+export function removeDetails(payload){
+    return{
+        type: REMOVE_DETAILS,
+        payload
+    }
+}
+
+

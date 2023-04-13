@@ -25,6 +25,8 @@ const [form, setForm] = useState({
     types: [],
 })
 
+const imgDefault = "../../images/pokebola.png"
+
 
 const dispatch = useDispatch();
 
@@ -70,6 +72,9 @@ const submitHandler = (event) => {
         alert("Missing data.")
     }
 }
+
+console.log(form.image)
+
 // console.log("alltypes:",allTypes)
     return (
         <div>
@@ -119,11 +124,10 @@ const submitHandler = (event) => {
                 </div>
                 <br/>
                 <div className={style.imgInput}>
-                <label>Image: </label>
+                {/* <label>Image: </label> */}
                 {/* <input type="file" accept="image/png, image/jpeg" aria-label="Upload" value={form.image}  onChange={changeHandler} name = "image"/> */}
-                <input type="text" value={form.image || "https://e7.pngegg.com/pngimages/569/963/png-clipart-pokeball-illustration-ash-ketchum-pokeball-s-image-file-formats-rim.png"} onChange={changeHandler} name = "image" />
+                {/* <input type="text" value={"https://img1.freepng.es/20171220/kqw/pokeball-png-5a3a4a7e247ce7.9167778215137695981495.jpg"} onChange={changeHandler} name = "image" /> */}
                 </div>
-                <br/>
                 <div>
                 {allTypes ? 
                 <div>

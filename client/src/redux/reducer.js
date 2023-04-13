@@ -1,4 +1,4 @@
-import {GET_POKEMONS, GET_POKEMON_BY_ID, GET_POKEMON_BY_NAME, GET_TYPES, POST_POKEMON, SEARCHED_POKEMON,  FILTER_BY_TYPE, FILTER_BY_ORIGIN, ORDER_BY_NAME, ORDER_BY_STRENGTH} from "./actions";
+import {GET_POKEMONS, GET_POKEMON_BY_ID, GET_POKEMON_BY_NAME, GET_TYPES, POST_POKEMON, SEARCHED_POKEMON,  FILTER_BY_TYPE, FILTER_BY_ORIGIN, ORDER_BY_NAME, ORDER_BY_STRENGTH, REMOVE_DETAILS} from "./actions";
 
 const initialState = {
     allPokemons: [],
@@ -105,6 +105,8 @@ const rootReducer = (state = initialState, action) =>{
                             allPokemons: orderedByAttack
                         }
             
+
+
         case POST_POKEMON:
             return{...state}
         default:
