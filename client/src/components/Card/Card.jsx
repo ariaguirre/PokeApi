@@ -7,7 +7,10 @@ import style from "./Card.module.css";
 export default function Card({name, hp, image, id, types}){
     return (
         <div className={style.card}>
-            <img src={image} className={style.image} alt="Image not found."/>
+            {image ? 
+            <img src={image} className={style.image}/>
+            : !<img/>
+        }
             {/* <h3>{name.toUpperCase()}</h3> */}
             <br/>
             <div className={style.name}>

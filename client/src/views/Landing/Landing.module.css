@@ -1,9 +1,10 @@
 body {
     background-image: url('../../images/forest.jpg');
     background-blend-mode:normal;
-    background-size: cover;
+    background-size:contain;
     background-position: center;
-    /* background-repeat: no-repeat; */
+    background-repeat: repeat;
+    background-clip: border-box;
   }
 
 

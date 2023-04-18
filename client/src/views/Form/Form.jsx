@@ -69,7 +69,7 @@ const submitHandler = (event) => {
         dispatch(postPokemon(form));
         alert("Pokemon created!")
     } else {
-        alert("Missing data.")
+        alert("Missing data!")
     }
 }
 

@@ -16,7 +16,7 @@ export default function Detail() {
     const id = useParams();
     useEffect(() => {dispatch(getPokemonById(id.id))}, []); 
 
-    // console.log("pokemonDetail: ", pokemonDetail)
+    console.log("pokemonDetail: ", pokemonDetail)
     return(
         <div>
             <Link to="/">
@@ -34,7 +34,10 @@ export default function Detail() {
             
             <h1>{pokemonDetail.name.charAt(0).toUpperCase()+pokemonDetail.name.slice(1)}</h1>
             <div className={style.imgCont}>
-            <img src={pokemonDetail.img} className={style.image} alt='image not found'/>
+                {pokemonDetail.image !== 'null' ? 
+                <img src={pokemonDetail.img} className={style.image} />
+                : !<img src = {pokemonDetail.image}/>
+                }
             </div>
 
             <div>

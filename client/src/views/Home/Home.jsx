@@ -138,7 +138,7 @@ export default function Home (){
                              <Link to={`/pokemon/${pokemon.id}`} className={style.homeCardsLink}>
                                 <Card 
                                 name={pokemon.name}  
-                                image={pokemon.image}
+                                image={pokemon.image !== 'null'? pokemon.image : !pokemon.image}
                                 // hp={pokemon.hp}
                                 types={pokemon.types}  
                                 id={pokemon.id} 
